@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://player.gd" id="1_wjkuh"]
 [ext_resource type="Texture2D" uid="uid://d3opgkv5gcrt1" path="res://art/player_idle1.png" id="2_mgx7f"]
-[ext_resource type="AudioStream" uid="uid://cmias2aaqqyyc" path="res://sound/Footstep_01.wav" id="3_c02n2"]
+[ext_resource type="AudioStream" uid="uid://biksdq47q1l6q" path="res://sound/Folklore_SFX_FootSteps_01.wav" id="3_ed0ky"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_boy76"]
 animations = [{
@@ -31,10 +31,8 @@ position = Vector2(3, 31)
 shape = SubResource("CapsuleShape2D_ndnpg")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_c02n2")
-volume_db = 21.549
-max_polyphony = 126
-bus = &"SFX Bus"
+stream = ExtResource("3_ed0ky")
+volume_db = 24.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="hit" from="." to="." method="_on_hit"]

@@ -28,11 +28,11 @@ func _process(delta: float) -> void:
 		velocity = direction.normalized().move_toward(speed*direction, acceleration)
 		# Play animation
 	else:
-
+		if Input.is_action_pressed("move_up"):
+			$AudioStreamPlayer.play()
 		pass
 		# Stop Animation
-	if Input.is_action_pressed("move_up"):
-			$AudioStreamPlayer.play()
+			
 		
 	# More Animation Stuff
 	#if velocity.x != 0:
@@ -45,8 +45,8 @@ func _process(delta: float) -> void:
 		#$AnimatedSprite2D.flip_v = velocity.y > 0
 
 
-		
-		
+
+
 	position += velocity
 
 
