@@ -21,15 +21,18 @@ func _ready():
 func _process(delta: float) -> void:
 	var velocity = Vector2.ZERO # The player's movement vector.
 	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	
+
 	if direction.length() > 0 and can_move:
 		#velocity.x = move_toward(velocity.x, speed * direction.x, acceleration)
 		#velocity.y = move_toward(velocity.y, speed * direction.y, acceleration)
 		velocity = direction.normalized().move_toward(speed*direction, acceleration)
 		# Play animation
 	else:
+
 		pass
 		# Stop Animation
+	if Input.is_action_pressed("move_up"):
+			$AudioStreamPlayer.play()
 		
 	# More Animation Stuff
 	#if velocity.x != 0:
@@ -40,7 +43,10 @@ func _process(delta: float) -> void:
 	#elif velocity.y != 0:
 		#$AnimatedSprite2D.animation = "up"
 		#$AnimatedSprite2D.flip_v = velocity.y > 0
-	
+
+
+		
+		
 	position += velocity
 
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2htt0g2a0f7h"]
+[gd_scene load_steps=6 format=3 uid="uid://d2htt0g2a0f7h"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_wjkuh"]
-[ext_resource type="Texture2D" uid="uid://byehjfwyqpfi8" path="res://art/player_idle1.png" id="2_mgx7f"]
+[ext_resource type="Texture2D" uid="uid://d3opgkv5gcrt1" path="res://art/player_idle1.png" id="2_mgx7f"]
+[ext_resource type="AudioStream" uid="uid://cmias2aaqqyyc" path="res://sound/Footstep_01.wav" id="3_c02n2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_boy76"]
 animations = [{
@@ -23,10 +24,17 @@ script = ExtResource("1_wjkuh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_boy76")
 animation = &"idle"
+frame_progress = 0.291837
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 31)
 shape = SubResource("CapsuleShape2D_ndnpg")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_c02n2")
+volume_db = 21.549
+max_polyphony = 126
+bus = &"SFX Bus"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="hit" from="." to="." method="_on_hit"]

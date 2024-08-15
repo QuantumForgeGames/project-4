@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqvpfp1l7hj2u"]
+[gd_scene load_steps=8 format=3 uid="uid://bqvpfp1l7hj2u"]
 
 [ext_resource type="PackedScene" uid="uid://d2htt0g2a0f7h" path="res://player.tscn" id="1_0shv4"]
 [ext_resource type="Script" path="res://main.gd" id="1_ssdn0"]
-[ext_resource type="Texture2D" uid="uid://c5oceeetnc3sr" path="res://art/tree1.png" id="3_ovwij"]
+[ext_resource type="Texture2D" uid="uid://bvym8oubedt03" path="res://art/tree1.png" id="3_ovwij"]
 [ext_resource type="PackedScene" uid="uid://daqypclehyomv" path="res://hud.tscn" id="4_0xen6"]
-[ext_resource type="Texture2D" uid="uid://dlsgq88843bpf" path="res://art/background_temp.png" id="5_melip"]
+[ext_resource type="AudioStream" uid="uid://1tobp4wxbx70" path="res://sound/Folklore_v1-Loopable.wav" id="4_q36p1"]
+[ext_resource type="Texture2D" uid="uid://bxvowfd4cjtxw" path="res://art/background_temp.png" id="5_melip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8q8cp"]
 size = Vector2(70, 51)
@@ -18,6 +19,13 @@ centered = false
 
 [node name="Player" parent="." instance=ExtResource("1_0shv4")]
 position = Vector2(640, 926)
+speed = null
+acceleration = null
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_q36p1")
+autoplay = true
+bus = &"Music Bus"
 
 [node name="Area2D2" type="Area2D" parent="."]
 position = Vector2(309, 322)
