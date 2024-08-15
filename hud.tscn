@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3 uid="uid://daqypclehyomv"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_b6avw"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_b6avw")
+
+[node name="TimeLabel" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -217.0
+offset_top = 62.0
+offset_right = -140.0
+offset_bottom = 85.0
+grow_horizontal = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -15.5
+offset_right = 23.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+
+[node name="MessageTimer" type="Timer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(256, 0)
+offset_right = 256.0
+offset_bottom = 27.0
+max_value = 3.0
+
+[node name="DaytimeBar" type="ProgressBar" parent="."]
+modulate = Color(0.439216, 0, 1, 1)
+custom_minimum_size = Vector2(256, 0)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -4.0
+offset_bottom = 27.0
+grow_horizontal = 0
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]

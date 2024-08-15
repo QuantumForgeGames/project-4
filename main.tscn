@@ -1,0 +1,150 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqvpfp1l7hj2u"]
+
+[ext_resource type="PackedScene" uid="uid://d2htt0g2a0f7h" path="res://player.tscn" id="1_0shv4"]
+[ext_resource type="Script" path="res://main.gd" id="1_ssdn0"]
+[ext_resource type="Texture2D" uid="uid://c5oceeetnc3sr" path="res://art/tree1.png" id="3_ovwij"]
+[ext_resource type="PackedScene" uid="uid://daqypclehyomv" path="res://hud.tscn" id="4_0xen6"]
+[ext_resource type="Texture2D" uid="uid://dlsgq88843bpf" path="res://art/background_temp.png" id="5_melip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8q8cp"]
+size = Vector2(70, 51)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ssdn0")
+
+[node name="BackgroundTemp" type="Sprite2D" parent="."]
+texture = ExtResource("5_melip")
+centered = false
+
+[node name="Player" parent="." instance=ExtResource("1_0shv4")]
+position = Vector2(640, 926)
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(309, 322)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2"]
+polygon = PackedVector2Array(298, 397, 294, 261, 296, 179, 266, 118, 214, 82, 127, 65, -7, 119, -100, 150, -223, 144, -278, 77, -303, -13, -301, -136, -237, -223, -134, -298, -73, -328, -440, -333, -397, 529, 324, 515)
+
+[node name="StartMarker" type="Marker2D" parent="."]
+position = Vector2(640, 620)
+
+[node name="HUD" parent="." instance=ExtResource("4_0xen6")]
+
+[node name="DaytimeTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(809, 329)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-128, 415, -130, 257, -157, 112, -255, 6, -402, -15, -459, 25, -567, 61, -633, 92, -718, 68, -747, -33, -730, -144, -652, -230, -490, -339, -126, -350, 14, -233, 12, 458)
+
+[node name="Trees" type="Node2D" parent="."]
+
+[node name="Row1" type="Node2D" parent="Trees"]
+
+[node name="Icon" type="Sprite2D" parent="Trees/Row1"]
+y_sort_enabled = true
+position = Vector2(721, 635)
+texture = ExtResource("3_ovwij")
+
+[node name="Icon2" type="Sprite2D" parent="Trees/Row1"]
+y_sort_enabled = true
+position = Vector2(786, 638)
+texture = ExtResource("3_ovwij")
+metadata/_edit_group_ = true
+
+[node name="Icon3" type="Sprite2D" parent="Trees/Row1"]
+y_sort_enabled = true
+position = Vector2(845, 635)
+texture = ExtResource("3_ovwij")
+
+[node name="Icon4" type="Sprite2D" parent="Trees/Row1"]
+y_sort_enabled = true
+position = Vector2(910, 638)
+texture = ExtResource("3_ovwij")
+metadata/_edit_group_ = true
+
+[node name="Icon5" type="Sprite2D" parent="Trees/Row1"]
+y_sort_enabled = true
+position = Vector2(964, 635)
+texture = ExtResource("3_ovwij")
+
+[node name="Icon6" type="Sprite2D" parent="Trees/Row1"]
+y_sort_enabled = true
+position = Vector2(1029, 638)
+texture = ExtResource("3_ovwij")
+metadata/_edit_group_ = true
+
+[node name="Icon7" type="Sprite2D" parent="Trees/Row1"]
+y_sort_enabled = true
+position = Vector2(1088, 635)
+texture = ExtResource("3_ovwij")
+
+[node name="Icon8" type="Sprite2D" parent="Trees/Row1"]
+y_sort_enabled = true
+position = Vector2(1153, 638)
+texture = ExtResource("3_ovwij")
+metadata/_edit_group_ = true
+
+[node name="Row2" type="Node2D" parent="Trees"]
+
+[node name="Icon9" type="Sprite2D" parent="Trees/Row2"]
+y_sort_enabled = true
+position = Vector2(798, 577)
+texture = ExtResource("3_ovwij")
+
+[node name="Icon10" type="Sprite2D" parent="Trees/Row2"]
+y_sort_enabled = true
+position = Vector2(863, 580)
+texture = ExtResource("3_ovwij")
+metadata/_edit_group_ = true
+
+[node name="Icon11" type="Sprite2D" parent="Trees/Row2"]
+y_sort_enabled = true
+position = Vector2(922, 577)
+texture = ExtResource("3_ovwij")
+
+[node name="Icon12" type="Sprite2D" parent="Trees/Row2"]
+y_sort_enabled = true
+position = Vector2(987, 580)
+texture = ExtResource("3_ovwij")
+metadata/_edit_group_ = true
+
+[node name="Icon13" type="Sprite2D" parent="Trees/Row2"]
+y_sort_enabled = true
+position = Vector2(1041, 577)
+texture = ExtResource("3_ovwij")
+
+[node name="Icon14" type="Sprite2D" parent="Trees/Row2"]
+y_sort_enabled = true
+position = Vector2(1106, 580)
+texture = ExtResource("3_ovwij")
+metadata/_edit_group_ = true
+
+[node name="Icon15" type="Sprite2D" parent="Trees/Row2"]
+y_sort_enabled = true
+position = Vector2(1165, 577)
+texture = ExtResource("3_ovwij")
+
+[node name="Icon16" type="Sprite2D" parent="Trees/Row2"]
+y_sort_enabled = true
+position = Vector2(1230, 580)
+texture = ExtResource("3_ovwij")
+metadata/_edit_group_ = true
+
+[node name="GoalArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalArea"]
+position = Vector2(37, 239.5)
+shape = SubResource("RectangleShape2D_8q8cp")
+
+[connection signal="died" from="Player" to="." method="game_over"]
+[connection signal="hit" from="Player" to="." method="update_health"]
+[connection signal="won" from="Player" to="." method="game_over"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="timeout" from="DaytimeTimer" to="." method="_on_daytime_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

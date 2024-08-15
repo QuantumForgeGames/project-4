@@ -1,0 +1,16 @@
+# Godot 4+ specific ignores
+.godot/
+
+# Godot-specific ignores
+.import/
+*.import
+*.translation
+
+addons/*
+large_assets/*
+
+# Mono-specific ignores
+.mono/
+
+*.tmp
+*.png~
