@@ -23,15 +23,16 @@ func _process(delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
 	if direction.length() > 0 and can_move:
-		#velocity.x = move_toward(velocity.x, speed * direction.x, acceleration)
-		#velocity.y = move_toward(velocity.y, speed * direction.y, acceleration)
 		velocity = direction.normalized().move_toward(speed*direction, acceleration)
 		# Play animation
+		$AnimatedSprite2D.play("idle")
 	else:
 		if Input.is_action_pressed("move_up"):
-			$AudioStreamPlayer.play()
+			#$AudioStreamPlayer.play()
+			pass
 		pass
 		# Stop Animation
+		$AnimatedSprite2D.stop()
 			
 		
 	# More Animation Stuff
@@ -43,9 +44,6 @@ func _process(delta: float) -> void:
 	#elif velocity.y != 0:
 		#$AnimatedSprite2D.animation = "up"
 		#$AnimatedSprite2D.flip_v = velocity.y > 0
-
-
-
 
 	position += velocity
 
@@ -75,8 +73,8 @@ func blink_red():
 	tween.tween_property($AnimatedSprite2D, "modulate", Color(1, 1, 1) , .1).set_trans(Tween.TRANS_SINE)
 
 
-
 func _on_area_entered(area):
+	$HitSFXPlayer.play()
 	can_move = false
 	if area.name == "GoalArea":
 		hide()
@@ -95,3 +93,7 @@ func _on_area_entered(area):
 
 func _on_hit():
 	print("I GOT HIT!!!")
+
+
+func _on_animated_sprite_2d_frame_changed():
+	$MovementSFXPlayer2D.play()

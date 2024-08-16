@@ -1,14 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2htt0g2a0f7h"]
+[gd_scene load_steps=21 format=3 uid="uid://d2htt0g2a0f7h"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_wjkuh"]
-[ext_resource type="Texture2D" uid="uid://d3opgkv5gcrt1" path="res://art/player_idle1.png" id="2_mgx7f"]
-[ext_resource type="AudioStream" uid="uid://biksdq47q1l6q" path="res://sound/Folklore_SFX_FootSteps_01.wav" id="3_ed0ky"]
+[ext_resource type="Texture2D" uid="uid://byehjfwyqpfi8" path="res://art/player_idle1.png" id="2_mgx7f"]
+[ext_resource type="Texture2D" uid="uid://2lm6s65sa4tx" path="res://art/player_idle2.png" id="3_et0ni"]
+[ext_resource type="AudioStream" uid="uid://b7pbflgf4mk2l" path="res://sound/Folklore_SFX_damage-sfx.wav" id="3_wflg6"]
+[ext_resource type="AudioStream" uid="uid://cq7vrda8faiby" path="res://sound/Folklore_SFX_FootSteps_01.wav" id="4_fnvbm"]
+[ext_resource type="AudioStream" uid="uid://bfm02dxw4tt6f" path="res://sound/Folklore_SFX_FootSteps_02.wav" id="5_1tti4"]
+[ext_resource type="AudioStream" uid="uid://bec3hiyudqxj" path="res://sound/Folklore_SFX_FootSteps_11.wav" id="6_shtvo"]
+[ext_resource type="AudioStream" uid="uid://c28c2u3styb21" path="res://sound/Folklore_SFX_FootSteps_12.wav" id="7_66avg"]
+[ext_resource type="AudioStream" uid="uid://r1hqyemiolp8" path="res://sound/Folklore_SFX_FootSteps_13.wav" id="8_ssxxe"]
+[ext_resource type="AudioStream" uid="uid://cmoirmukhn0qo" path="res://sound/Folklore_SFX_FootSteps_03.wav" id="9_bohui"]
+[ext_resource type="AudioStream" uid="uid://bod3v25pamf8y" path="res://sound/Folklore_SFX_FootSteps_04.wav" id="10_nd5id"]
+[ext_resource type="AudioStream" uid="uid://kh62n7gcprli" path="res://sound/Folklore_SFX_FootSteps_05.wav" id="11_pt8na"]
+[ext_resource type="AudioStream" uid="uid://c4pb8s6mlmqkd" path="res://sound/Folklore_SFX_FootSteps_06.wav" id="12_c7ukl"]
+[ext_resource type="AudioStream" uid="uid://ba7lbih7708xb" path="res://sound/Folklore_SFX_FootSteps_07.wav" id="13_gq216"]
+[ext_resource type="AudioStream" uid="uid://bfkclf0u7en20" path="res://sound/Folklore_SFX_FootSteps_08.wav" id="14_7p5u1"]
+[ext_resource type="AudioStream" uid="uid://cev0ihls4co2u" path="res://sound/Folklore_SFX_FootSteps_09.wav" id="15_lx1n1"]
+[ext_resource type="AudioStream" uid="uid://boulqaj4mggiq" path="res://sound/Folklore_SFX_FootSteps_10.wav" id="16_x2a7k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_boy76"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_mgx7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_et0ni")
 }],
 "loop": true,
 "name": &"idle",
@@ -18,21 +35,55 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ndnpg"]
 radius = 8.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7u7w7"]
+streams_count = 13
+stream_0/stream = ExtResource("4_fnvbm")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_1tti4")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("9_bohui")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("10_nd5id")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("11_pt8na")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("12_c7ukl")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("13_gq216")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("14_7p5u1")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("15_lx1n1")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("16_x2a7k")
+stream_9/weight = 1.0
+stream_10/stream = ExtResource("6_shtvo")
+stream_10/weight = 1.0
+stream_11/stream = ExtResource("7_66avg")
+stream_11/weight = 1.0
+stream_12/stream = ExtResource("8_ssxxe")
+stream_12/weight = 1.0
+
 [node name="Player" type="Area2D"]
 script = ExtResource("1_wjkuh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_boy76")
 animation = &"idle"
-frame_progress = 0.291837
+frame_progress = 0.718976
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 31)
 shape = SubResource("CapsuleShape2D_ndnpg")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_ed0ky")
-volume_db = 24.0
+[node name="HitSFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wflg6")
+bus = &"SFX Bus"
+
+[node name="MovementSFXPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_7u7w7")
+bus = &"SFX Bus"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="hit" from="." to="." method="_on_hit"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

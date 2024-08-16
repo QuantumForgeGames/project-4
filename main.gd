@@ -4,20 +4,12 @@ extends Node
 var daytime: int
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func game_over(player_has_won):
 	print(player_has_won)
 	$DaytimeTimer.stop()
 	$HUD.show_game_over(player_has_won)
+	$MusicPlayer.stop()
+	$BackgroundSFXPlayer.stop()
 
 
 func new_game():
@@ -27,6 +19,8 @@ func new_game():
 	$HUD.update_daytime(daytime)
 	$HUD.update_health($Player.health)
 	$HUD.show_message("Get Ready")
+	$MusicPlayer.play()
+	$BackgroundSFXPlayer.play()
 
 
 func _on_start_timer_timeout():
