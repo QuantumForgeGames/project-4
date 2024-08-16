@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqvpfp1l7hj2u"]
+[gd_scene load_steps=12 format=3 uid="uid://bqvpfp1l7hj2u"]
 
 [ext_resource type="PackedScene" uid="uid://d2htt0g2a0f7h" path="res://player.tscn" id="1_0shv4"]
 [ext_resource type="Script" path="res://main.gd" id="1_ssdn0"]
-[ext_resource type="Texture2D" uid="uid://c5oceeetnc3sr" path="res://art/tree1.png" id="3_ovwij"]
+[ext_resource type="AudioStream" uid="uid://b4por5i67cqko" path="res://sound/Folklore_SFX_backgorund sfx.wav" id="2_rryti"]
+[ext_resource type="AudioStream" uid="uid://1tobp4wxbx70" path="res://sound/Folklore_v1-Loopable.wav" id="3_nihrv"]
+[ext_resource type="Texture2D" uid="uid://bvym8oubedt03" path="res://art/tree1.png" id="3_ovwij"]
 [ext_resource type="PackedScene" uid="uid://daqypclehyomv" path="res://hud.tscn" id="4_0xen6"]
-[ext_resource type="Texture2D" uid="uid://dlsgq88843bpf" path="res://art/background_temp.png" id="5_melip"]
-[ext_resource type="Texture2D" uid="uid://c48ff1whldq5p" path="res://art/Overworld.png" id="6_p0b1i"]
+[ext_resource type="Texture2D" uid="uid://bxvowfd4cjtxw" path="res://art/background_temp.png" id="5_melip"]
+[ext_resource type="Texture2D" uid="uid://b0jw8d4ack3vb" path="res://art/Overworld.png" id="6_p0b1i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8q8cp"]
 size = Vector2(70, 51)
@@ -1091,6 +1093,15 @@ sources/0 = SubResource("TileSetAtlasSource_uqfwb")
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ssdn0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rryti")
+volume_db = -18.27
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nihrv")
+autoplay = true
 
 [node name="BackgroundTemp" type="Sprite2D" parent="."]
 visible = false
