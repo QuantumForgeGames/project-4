@@ -2,14 +2,25 @@ extends Node
 
 
 var daytime: int
+var map_rect
+var tile_size
+var world_size_in_pixels
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
 
 
 func game_over(player_has_won):
 	print(player_has_won)
 	$DaytimeTimer.stop()
 	$HUD.show_game_over(player_has_won)
-	$MusicPlayer.stop()
-	$BackgroundSFXPlayer.stop()
 
 
 func new_game():
@@ -19,8 +30,11 @@ func new_game():
 	$HUD.update_daytime(daytime)
 	$HUD.update_health($Player.health)
 	$HUD.show_message("Get Ready")
-	$MusicPlayer.play()
-	$BackgroundSFXPlayer.play()
+	map_rect = $TileMap.get_used_rect()
+	tile_size = $TileMap.rendering_quadrant_size
+	world_size_in_pixels = map_rect.size * tile_size
+	$Player/Camera2D.limit_right = world_size_in_pixels.x
+	$Player/Camera2D.limit_bottom = world_size_in_pixels.y
 
 
 func _on_start_timer_timeout():
