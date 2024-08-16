@@ -2,6 +2,9 @@ extends Node
 
 
 var daytime: int
+var map_rect
+var tile_size
+var world_size_in_pixels
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,6 +30,11 @@ func new_game():
 	$HUD.update_daytime(daytime)
 	$HUD.update_health($Player.health)
 	$HUD.show_message("Get Ready")
+	map_rect = $TileMap.get_used_rect()
+	tile_size = $TileMap.rendering_quadrant_size
+	world_size_in_pixels = map_rect.size * tile_size
+	$Player/Camera2D.limit_right = world_size_in_pixels.x
+	$Player/Camera2D.limit_bottom = world_size_in_pixels.y
 
 
 func _on_start_timer_timeout():

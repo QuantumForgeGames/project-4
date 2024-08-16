@@ -6,7 +6,7 @@ signal hit
 signal won
 
 
-@export var speed: float = 2.0
+@export var speed: float = 8.0
 @export var acceleration: float = 30
 
 
