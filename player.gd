@@ -24,26 +24,20 @@ func _process(delta: float) -> void:
 
 	if direction.length() > 0 and can_move:
 		velocity = direction.normalized().move_toward(speed*direction, acceleration)
-		# Play animation
-		$AnimatedSprite2D.play("idle")
-	else:
-		if Input.is_action_pressed("move_up"):
-			#$AudioStreamPlayer.play()
-			pass
-		pass
-		# Stop Animation
-		$AnimatedSprite2D.stop()
-			
+		$AnimatedSprite2D.play()
+	
+	if velocity.x > 0:
+		$AnimatedSprite2D.animation = "walk_right"
+	elif velocity.x < 0:
+		$AnimatedSprite2D.animation = "walk_left"
+	elif velocity.y > 0:
+		$AnimatedSprite2D.animation = "walk_down"
+	elif velocity.y < 0:
+		$AnimatedSprite2D.animation = "walk_up"
 		
-	# More Animation Stuff
-	#if velocity.x != 0:
-		#$AnimatedSprite2D.animation = "walk"
-		#$AnimatedSprite2D.flip_v = false
-	# See the note below about the following boolean assignment.
-	#$AnimatedSprite2D.flip_h = velocity.x < 0
-	#elif velocity.y != 0:
-		#$AnimatedSprite2D.animation = "up"
-		#$AnimatedSprite2D.flip_v = velocity.y > 0
+	if velocity.length() == 0 or can_move == false:
+		$AnimatedSprite2D.stop()
+
 
 	position += velocity
 
@@ -60,9 +54,9 @@ func respawn():
 	blink_red()
 	await get_tree().create_timer(.5).timeout
 	can_move = true
-	# Find where to respawn the player
 
 
+# TODO Clean this up.
 func blink_red():
 	var tween = get_tree().create_tween()
 	tween.tween_property($AnimatedSprite2D, "modulate", Color.RED, .1).set_trans(Tween.TRANS_SINE)
@@ -89,10 +83,6 @@ func _on_area_entered(area):
 			hide()
 			died.emit(false)
 			$CollisionShape2D.set_deferred("disabled", true)
-
-
-func _on_hit():
-	print("I GOT HIT!!!")
 
 
 func _on_animated_sprite_2d_frame_changed():

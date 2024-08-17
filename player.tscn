@@ -1,22 +1,87 @@
-[gd_scene load_steps=21 format=3 uid="uid://d2htt0g2a0f7h"]
+[gd_scene load_steps=38 format=3 uid="uid://d2htt0g2a0f7h"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_wjkuh"]
-[ext_resource type="Texture2D" uid="uid://d3opgkv5gcrt1" path="res://art/player_idle1.png" id="2_mgx7f"]
-[ext_resource type="Texture2D" uid="uid://bh16nspje5x6" path="res://art/player_idle2.png" id="3_et0ni"]
-[ext_resource type="AudioStream" uid="uid://cadyefwjokyi3" path="res://sound/Folklore_SFX_damage-sfx.wav" id="3_wflg6"]
-[ext_resource type="AudioStream" uid="uid://biksdq47q1l6q" path="res://sound/Folklore_SFX_FootSteps_01.wav" id="4_fnvbm"]
-[ext_resource type="AudioStream" uid="uid://c0ufna6f56uvg" path="res://sound/Folklore_SFX_FootSteps_02.wav" id="5_1tti4"]
-[ext_resource type="AudioStream" uid="uid://c8im2fmpc57rf" path="res://sound/Folklore_SFX_FootSteps_11.wav" id="6_shtvo"]
-[ext_resource type="AudioStream" uid="uid://l2ir5snc7ksy" path="res://sound/Folklore_SFX_FootSteps_12.wav" id="7_66avg"]
-[ext_resource type="AudioStream" uid="uid://crgckp5ixo8aw" path="res://sound/Folklore_SFX_FootSteps_13.wav" id="8_ssxxe"]
-[ext_resource type="AudioStream" uid="uid://cyxhavvr0o2v1" path="res://sound/Folklore_SFX_FootSteps_03.wav" id="9_bohui"]
-[ext_resource type="AudioStream" uid="uid://cpdy6koqclihp" path="res://sound/Folklore_SFX_FootSteps_04.wav" id="10_nd5id"]
-[ext_resource type="AudioStream" uid="uid://df4d5mg3em1ub" path="res://sound/Folklore_SFX_FootSteps_05.wav" id="11_pt8na"]
-[ext_resource type="AudioStream" uid="uid://cisso5p0x0b11" path="res://sound/Folklore_SFX_FootSteps_06.wav" id="12_c7ukl"]
-[ext_resource type="AudioStream" uid="uid://d15puv25l71pg" path="res://sound/Folklore_SFX_FootSteps_07.wav" id="13_gq216"]
-[ext_resource type="AudioStream" uid="uid://cnrfm0hq24v0o" path="res://sound/Folklore_SFX_FootSteps_08.wav" id="14_7p5u1"]
-[ext_resource type="AudioStream" uid="uid://dx7defhn17w4r" path="res://sound/Folklore_SFX_FootSteps_09.wav" id="15_lx1n1"]
-[ext_resource type="AudioStream" uid="uid://ccaeqpwlgn7nf" path="res://sound/Folklore_SFX_FootSteps_10.wav" id="16_x2a7k"]
+[ext_resource type="Texture2D" uid="uid://byehjfwyqpfi8" path="res://art/player_idle1.png" id="2_mgx7f"]
+[ext_resource type="Texture2D" uid="uid://2lm6s65sa4tx" path="res://art/player_idle2.png" id="3_et0ni"]
+[ext_resource type="AudioStream" uid="uid://b7pbflgf4mk2l" path="res://sound/Folklore_SFX_damage-sfx.wav" id="3_wflg6"]
+[ext_resource type="Texture2D" uid="uid://bmmr5gabc5s4" path="res://art/player_walk_spritesheet.png" id="4_ff7l3"]
+[ext_resource type="AudioStream" uid="uid://cq7vrda8faiby" path="res://sound/Folklore_SFX_FootSteps_01.wav" id="4_fnvbm"]
+[ext_resource type="AudioStream" uid="uid://bfm02dxw4tt6f" path="res://sound/Folklore_SFX_FootSteps_02.wav" id="5_1tti4"]
+[ext_resource type="AudioStream" uid="uid://bec3hiyudqxj" path="res://sound/Folklore_SFX_FootSteps_11.wav" id="6_shtvo"]
+[ext_resource type="AudioStream" uid="uid://c28c2u3styb21" path="res://sound/Folklore_SFX_FootSteps_12.wav" id="7_66avg"]
+[ext_resource type="AudioStream" uid="uid://r1hqyemiolp8" path="res://sound/Folklore_SFX_FootSteps_13.wav" id="8_ssxxe"]
+[ext_resource type="AudioStream" uid="uid://cmoirmukhn0qo" path="res://sound/Folklore_SFX_FootSteps_03.wav" id="9_bohui"]
+[ext_resource type="AudioStream" uid="uid://bod3v25pamf8y" path="res://sound/Folklore_SFX_FootSteps_04.wav" id="10_nd5id"]
+[ext_resource type="AudioStream" uid="uid://kh62n7gcprli" path="res://sound/Folklore_SFX_FootSteps_05.wav" id="11_pt8na"]
+[ext_resource type="AudioStream" uid="uid://c4pb8s6mlmqkd" path="res://sound/Folklore_SFX_FootSteps_06.wav" id="12_c7ukl"]
+[ext_resource type="AudioStream" uid="uid://ba7lbih7708xb" path="res://sound/Folklore_SFX_FootSteps_07.wav" id="13_gq216"]
+[ext_resource type="AudioStream" uid="uid://bfkclf0u7en20" path="res://sound/Folklore_SFX_FootSteps_08.wav" id="14_7p5u1"]
+[ext_resource type="AudioStream" uid="uid://cev0ihls4co2u" path="res://sound/Folklore_SFX_FootSteps_09.wav" id="15_lx1n1"]
+[ext_resource type="AudioStream" uid="uid://boulqaj4mggiq" path="res://sound/Folklore_SFX_FootSteps_10.wav" id="16_x2a7k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcavp"]
+atlas = ExtResource("4_ff7l3")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfm3d"]
+atlas = ExtResource("4_ff7l3")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w47oe"]
+atlas = ExtResource("4_ff7l3")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_452t6"]
+atlas = ExtResource("4_ff7l3")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlm31"]
+atlas = ExtResource("4_ff7l3")
+region = Rect2(0, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1vsi"]
+atlas = ExtResource("4_ff7l3")
+region = Rect2(16, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w17m"]
+atlas = ExtResource("4_ff7l3")
+region = Rect2(32, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufvk7"]
+atlas = ExtResource("4_ff7l3")
+region = Rect2(48, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p11ql"]
+atlas = ExtResource("4_ff7l3")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ordm3"]
+atlas = ExtResource("4_ff7l3")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb1nx"]
+atlas = ExtResource("4_ff7l3")
+region = Rect2(32, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dk3x"]
+atlas = ExtResource("4_ff7l3")
+region = Rect2(48, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnitx"]
+atlas = ExtResource("4_ff7l3")
+region = Rect2(0, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5deh"]
+atlas = ExtResource("4_ff7l3")
+region = Rect2(16, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rbul"]
+atlas = ExtResource("4_ff7l3")
+region = Rect2(32, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8yik"]
+atlas = ExtResource("4_ff7l3")
+region = Rect2(48, 64, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_boy76"]
 animations = [{
@@ -29,6 +94,74 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcavp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfm3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w47oe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_452t6")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlm31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1vsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5w17m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufvk7")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p11ql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ordm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kb1nx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dk3x")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnitx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5deh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rbul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8yik")
+}],
+"loop": true,
+"name": &"walk_up",
 "speed": 5.0
 }]
 
@@ -69,8 +202,7 @@ script = ExtResource("1_wjkuh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_boy76")
-animation = &"idle"
-frame_progress = 0.718976
+animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 31)
@@ -86,5 +218,4 @@ volume_db = 17.333
 bus = &"SFX Bus"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="hit" from="." to="." method="_on_hit"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
