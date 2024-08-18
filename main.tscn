@@ -43,6 +43,7 @@ bus = &"SFX Bus"
 [connection signal="died" from="Player" to="." method="game_over"]
 [connection signal="hit" from="Player" to="." method="update_health"]
 [connection signal="won" from="Player" to="." method="game_over"]
+[connection signal="end_game" from="HUD" to="." method="game_over"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="timeout" from="DaytimeTimer" to="." method="_on_daytime_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
