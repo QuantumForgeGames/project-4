@@ -166,7 +166,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ndnpg"]
-radius = 8.0
+radius = 4.0
+height = 8.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7u7w7"]
 streams_count = 13
@@ -205,7 +206,7 @@ sprite_frames = SubResource("SpriteFrames_boy76")
 animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 31)
+position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_ndnpg")
 
 [node name="HitSFXPlayer" type="AudioStreamPlayer" parent="."]

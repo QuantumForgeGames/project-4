@@ -20,6 +20,7 @@ centered = false
 position = Vector2(638, 600)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
 
 [node name="Level" parent="." instance=ExtResource("4_w4c1s")]
 
