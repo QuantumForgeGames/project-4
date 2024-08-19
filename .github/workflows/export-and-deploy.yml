@@ -8,9 +8,9 @@ on:
 
 env:
   GODOT_VERSION: 4.2.2
-  EXPORT_NAME: project-4
+  EXPORT_NAME: into-the-woods
   ITCH_USERNAME: quantum-forge-games
-  ITCH_GAME_ID: project-4
+  ITCH_GAME_ID: into-the-woods
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
