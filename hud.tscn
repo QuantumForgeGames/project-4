@@ -60,7 +60,7 @@ texture = ExtResource("2_xgdou")
 stretch_mode = 1
 
 [node name="HealthFullRect" type="TextureRect" parent="Control/MarginContainer"]
-custom_minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0

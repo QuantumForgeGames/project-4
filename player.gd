@@ -12,6 +12,7 @@ signal won
 
 var health: int = 3
 var can_move: bool
+var footstep_frames: Array = [1]
 
 
 func _ready():
@@ -86,4 +87,5 @@ func _on_area_entered(area):
 
 
 func _on_animated_sprite_2d_frame_changed():
-	$MovementSFXPlayer2D.play()
+	if $AnimatedSprite2D.frame in footstep_frames:
+		$MovementSFXPlayer2D.play()

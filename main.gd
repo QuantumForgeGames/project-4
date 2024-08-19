@@ -19,11 +19,14 @@ func game_over(player_has_won):
 
 func new_game():
 	daytime = 100
+	$Player.health = 3
 	$Player.start($Level/StartMarker.position)
 	$StartTimer.start()
 	$HUD.update_daytime(daytime)
 	$HUD.update_health($Player.health)
 	$HUD.show_message("Get Ready")
+	$Level.update_sky()
+	$HUD/Control/SpinnerTexture.rotation_degrees = -180
 
 
 func _on_start_timer_timeout():

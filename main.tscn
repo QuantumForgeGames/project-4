@@ -16,13 +16,13 @@ visible = false
 texture = ExtResource("5_melip")
 centered = false
 
+[node name="Level" parent="." instance=ExtResource("4_w4c1s")]
+
 [node name="Player" parent="." instance=ExtResource("1_0shv4")]
 position = Vector2(638, 600)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
-
-[node name="Level" parent="." instance=ExtResource("4_w4c1s")]
 
 [node name="HUD" parent="." instance=ExtResource("4_0xen6")]
 
@@ -40,6 +40,7 @@ bus = &"Music Bus"
 stream = ExtResource("8_niwm0")
 bus = &"SFX Bus"
 
+[connection signal="died" from="Player" to="." method="update_health"]
 [connection signal="died" from="Player" to="." method="game_over"]
 [connection signal="hit" from="Player" to="." method="update_health"]
 [connection signal="won" from="Player" to="." method="game_over"]

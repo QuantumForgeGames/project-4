@@ -9,6 +9,8 @@ signal end_game
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#$HealthBar.hide()
+	$Control/MarginContainer/HealthEmptyRect.hide()
+	$Control/MarginContainer/HealthFullRect.hide()
 	$Control/MarginContainer/DaytimeBar.hide()
 
 
@@ -33,22 +35,26 @@ func show_game_over(player_has_won):
 
 
 func update_daytime(daytime):
-	$Control/MarginContainer/DaytimeBar.value = daytime
-	$Control/ClockTexture
-	$Control/SpinnerTexture.rotation_degrees = move_toward($Control/SpinnerTexture.rotation_degrees, 180, 50)
+	$Control/SpinnerTexture.rotation_degrees = move_toward($Control/SpinnerTexture.rotation_degrees, 180, 6)
 	if $Control/SpinnerTexture.rotation_degrees == 180:
 		end_game.emit(false)
 
 
 func update_health(health):
 	var tween = get_tree().create_tween()
-	tween.tween_property($Control/MarginContainer/HealthFullRect, "custom_minimum_size", $Control/MarginContainer/HealthFullRect.size - Vector2(16, 0), 0.25)
-	#$HealthBar.value = health
+	print(health)
+	if health == 0:
+		$Control/MarginContainer/HealthFullRect.hide()
+	else:
+		tween.tween_property($Control/MarginContainer/HealthFullRect, "custom_minimum_size:x", 16 * health, 0.25)
+
 
 
 func _on_start_button_pressed():
 	$Control/MarginContainer/VBoxContainer/StartButton.hide()
 	#$HealthBar.show()
+	$Control/MarginContainer/HealthEmptyRect.show()
+	$Control/MarginContainer/HealthFullRect.show()
 	#$Control/MarginContainer/DaytimeBar.show()
 	start_game.emit()
 
